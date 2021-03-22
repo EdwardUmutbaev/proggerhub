@@ -1,0 +1,20 @@
+package ru.edwum.proggerhub;
+
+import ru.edwum.di.Container;
+import ru.edwum.di.exception.DIException;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            Container container = new Container();
+
+            container.register("test", "test");
+            container.register(Test.class);
+            container.wire();
+        } catch (DIException e) {
+            e.printStackTrace();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+    }
+}
